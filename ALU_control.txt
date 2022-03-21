@@ -1,6 +1,6 @@
 # Truth table
 # Generated from circuit ALU_control
-# Exported on Sun Mar 20 18:08:36 COT 2022
+# Exported on Mon Mar 21 10:07:07 COT 2022
 
 # Hints and Notes on Formatting:
 # * You can edit this file then import it back into Logisim!
