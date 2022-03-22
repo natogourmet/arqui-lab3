@@ -3,23 +3,19 @@ Vector:	.word	-100, -59, 31, 57, -85, 79, -41, 82, -89, 53, -68, 8, 1, 12, -1, -
 
 .text
 
-#$t0 idx
+
 #$t1 notEven
 #$t2 num
 
-lui	$s0, -100	#$s0 = bigEven
-lui	$s1, 100	#$s1 = smallEven
-lui	$s2, -100	#$s2 = bigOdd
-lui	$s3, 100	#$s3 = smallOdd
 #$s4 = bigEvenCount
 #$s5 = smallEvenCount
 #$s5 = bigOddCount
 #$s5 = smallOddCount
 
-lw	$t2, Vector			#num=vector[0]
+la	$t2, Vector			#num=vector[0]
 
 Loop:
-	beq	$t1, $zero, Even:		#is idx even?	
+	beq	$t1, $zero, Even		#is idx even?	
 	#else (idx is odd)
 		slt $t3, $s2, $t2		#Is bigOdd < num
 		beq $t3, 1, SetBigOdd		# then
@@ -42,7 +38,7 @@ Loop:
 			add $s2, $t2, $zero			#bigOdd = num
 			j continue1
 			
-		SetSmallEven:
+		SetSmallOdd:
 			add $s3, $t2, $zero			#smallEven = num
 			j endIf
 			   
@@ -57,4 +53,3 @@ Loop:
 
 	endIf:
 	
-	add $t0, $t0	
